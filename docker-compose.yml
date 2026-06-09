@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: topconf-postgres
+    environment:
+      POSTGRES_DB: topconf
+      POSTGRES_USER: topconf
+      POSTGRES_PASSWORD: topconf
+    ports:
+      - "5432:5432"
+    volumes:
+      - topconf_postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: topconf-redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  topconf_postgres_data:

@@ -1,0 +1,279 @@
+version: 1
+updated_by: seed
+notes: >
+  Conference-registry-first seed list for metadata-only collection. The system
+  stores paper metadata, DOI, official landing pages, and open PDF links when
+  those links are available from public sources.
+
+domains:
+  network:
+    name_zh: 计算机网络
+    description: Networking, Internet systems, wireless, measurement, and systems networking.
+  architecture:
+    name_zh: 计算机体系结构
+    description: Computer architecture, microarchitecture, storage, and computer systems.
+  ai:
+    name_zh: 人工智能
+    description: Machine learning, artificial intelligence, vision, NLP, and data mining.
+
+conferences:
+  - acronym: SIGCOMM
+    full_name: ACM SIGCOMM Conference
+    domain: network
+    subdomain_default: computer-networking
+    publisher: ACM
+    official_url: https://conferences.sigcomm.org/sigcomm/
+    aliases: [ACM SIGCOMM]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: NSDI
+    full_name: USENIX Symposium on Networked Systems Design and Implementation
+    domain: network
+    subdomain_default: networked-systems
+    publisher: USENIX
+    official_url: https://www.usenix.org/conferences/byname/179
+    aliases: [USENIX NSDI]
+    default_sources: [usenix, dblp, openalex]
+    active: true
+
+  - acronym: CoNEXT
+    full_name: ACM International Conference on emerging Networking EXperiments and Technologies
+    domain: network
+    subdomain_default: experimental-networking
+    publisher: ACM
+    official_url: https://conferences2.sigcomm.org/co-next/
+    aliases: [ACM CoNEXT]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: INFOCOM
+    full_name: IEEE International Conference on Computer Communications
+    domain: network
+    subdomain_default: computer-communications
+    publisher: IEEE
+    official_url: https://infocom.info/
+    aliases: [IEEE INFOCOM]
+    default_sources: [dblp, ieee_xplore, openalex]
+    active: true
+
+  - acronym: MobiCom
+    full_name: ACM International Conference on Mobile Computing and Networking
+    domain: network
+    subdomain_default: mobile-networking
+    publisher: ACM
+    official_url: https://www.sigmobile.org/mobicom/
+    aliases: [ACM MobiCom]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: IMC
+    full_name: ACM Internet Measurement Conference
+    domain: network
+    subdomain_default: internet-measurement
+    publisher: ACM
+    official_url: https://conferences.sigcomm.org/imc/
+    aliases: [ACM IMC]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: SIGMETRICS
+    full_name: ACM SIGMETRICS International Conference on Measurement and Modeling of Computer Systems
+    domain: network
+    subdomain_default: performance-modeling
+    publisher: ACM
+    official_url: https://www.sigmetrics.org/
+    aliases: [ACM SIGMETRICS]
+    default_sources: [dblp, acm_dl, openalex]
+    active: true
+
+  - acronym: ISCA
+    full_name: International Symposium on Computer Architecture
+    domain: architecture
+    subdomain_default: computer-architecture
+    publisher: ACM/IEEE
+    official_url: https://www.iscaconf.org/
+    aliases: [ACM/IEEE ISCA]
+    default_sources: [dblp, official, acm_dl, ieee_xplore, openalex]
+    active: true
+
+  - acronym: MICRO
+    full_name: IEEE/ACM International Symposium on Microarchitecture
+    domain: architecture
+    subdomain_default: microarchitecture
+    publisher: ACM/IEEE
+    official_url: https://www.microarch.org/
+    aliases: [IEEE MICRO, ACM MICRO]
+    default_sources: [dblp, official, acm_dl, ieee_xplore, openalex]
+    active: true
+
+  - acronym: ASPLOS
+    full_name: ACM International Conference on Architectural Support for Programming Languages and Operating Systems
+    domain: architecture
+    subdomain_default: architecture-systems
+    publisher: ACM
+    official_url: https://www.asplos-conference.org/
+    aliases: [ACM ASPLOS]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: HPCA
+    full_name: IEEE International Symposium on High-Performance Computer Architecture
+    domain: architecture
+    subdomain_default: high-performance-architecture
+    publisher: IEEE
+    official_url: https://hpca-conf.org/
+    aliases: [IEEE HPCA]
+    default_sources: [dblp, official, ieee_xplore, openalex]
+    active: true
+
+  - acronym: FAST
+    full_name: USENIX Conference on File and Storage Technologies
+    domain: architecture
+    subdomain_default: storage-systems
+    publisher: USENIX
+    official_url: https://www.usenix.org/conferences/byname/131
+    aliases: [USENIX FAST]
+    default_sources: [usenix, dblp, openalex]
+    active: true
+
+  - acronym: EuroSys
+    full_name: European Conference on Computer Systems
+    domain: architecture
+    subdomain_default: systems
+    publisher: ACM
+    official_url: https://www.eurosys.org/
+    aliases: [ACM EuroSys]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: NeurIPS
+    full_name: Conference on Neural Information Processing Systems
+    domain: ai
+    subdomain_default: machine-learning
+    publisher: NeurIPS Foundation
+    official_url: https://neurips.cc/
+    aliases: [NIPS, NeuralIPS]
+    default_sources: [openreview, dblp, official, openalex]
+    active: true
+
+  - acronym: ICML
+    full_name: International Conference on Machine Learning
+    domain: ai
+    subdomain_default: machine-learning
+    publisher: PMLR
+    official_url: https://icml.cc/
+    aliases: [International Conference on ML]
+    default_sources: [pmlr, openreview, dblp, openalex]
+    active: true
+
+  - acronym: ICLR
+    full_name: International Conference on Learning Representations
+    domain: ai
+    subdomain_default: representation-learning
+    publisher: OpenReview
+    official_url: https://iclr.cc/
+    aliases: [ICLR Conference]
+    default_sources: [openreview, dblp, openalex]
+    active: true
+
+  - acronym: AAAI
+    full_name: AAAI Conference on Artificial Intelligence
+    domain: ai
+    subdomain_default: artificial-intelligence
+    publisher: AAAI Press
+    official_url: https://aaai.org/conference/aaai/
+    aliases: [AAAI Conference]
+    default_sources: [dblp, official, openalex]
+    active: true
+
+  - acronym: IJCAI
+    full_name: International Joint Conference on Artificial Intelligence
+    domain: ai
+    subdomain_default: artificial-intelligence
+    publisher: IJCAI Organization
+    official_url: https://www.ijcai.org/
+    aliases: [International Joint Conference on AI]
+    default_sources: [dblp, official, openalex]
+    active: true
+
+  - acronym: KDD
+    full_name: ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+    domain: ai
+    subdomain_default: data-mining
+    publisher: ACM
+    official_url: https://www.kdd.org/kdd-conference
+    aliases: [SIGKDD, ACM KDD]
+    default_sources: [dblp, official, acm_dl, openalex]
+    active: true
+
+  - acronym: CVPR
+    full_name: IEEE/CVF Conference on Computer Vision and Pattern Recognition
+    domain: ai
+    subdomain_default: computer-vision
+    publisher: IEEE/CVF
+    official_url: https://cvpr.thecvf.com/
+    aliases: [IEEE CVPR]
+    default_sources: [cvf, dblp, openalex]
+    active: true
+
+  - acronym: ICCV
+    full_name: IEEE/CVF International Conference on Computer Vision
+    domain: ai
+    subdomain_default: computer-vision
+    publisher: IEEE/CVF
+    official_url: https://iccv.thecvf.com/
+    aliases: [IEEE ICCV]
+    default_sources: [cvf, dblp, openalex]
+    active: true
+
+  - acronym: ECCV
+    full_name: European Conference on Computer Vision
+    domain: ai
+    subdomain_default: computer-vision
+    publisher: Springer/ECCV
+    official_url: https://eccv.ecva.net/
+    aliases: [European CV Conference]
+    default_sources: [dblp, official, openalex]
+    active: true
+
+  - acronym: ACL
+    full_name: Annual Meeting of the Association for Computational Linguistics
+    domain: ai
+    subdomain_default: natural-language-processing
+    publisher: ACL Anthology
+    official_url: https://aclanthology.org/
+    aliases: [ACL Annual Meeting]
+    default_sources: [acl_anthology, dblp, openalex]
+    active: true
+
+  - acronym: EMNLP
+    full_name: Conference on Empirical Methods in Natural Language Processing
+    domain: ai
+    subdomain_default: natural-language-processing
+    publisher: ACL Anthology
+    official_url: https://2024.emnlp.org/
+    aliases: [Empirical Methods in NLP]
+    default_sources: [acl_anthology, dblp, openalex]
+    active: true
+
+  - acronym: NAACL
+    full_name: Annual Conference of the North American Chapter of the Association for Computational Linguistics
+    domain: ai
+    subdomain_default: natural-language-processing
+    publisher: ACL Anthology
+    official_url: https://naacl.org/
+    aliases: [NAACL-HLT]
+    default_sources: [acl_anthology, dblp, openalex]
+    active: true
+
+  - acronym: COLT
+    full_name: Conference on Learning Theory
+    domain: ai
+    subdomain_default: learning-theory
+    publisher: PMLR
+    official_url: https://learningtheory.org/colt/
+    aliases: [Conference on Learning Theory]
+    default_sources: [pmlr, dblp, openalex]
+    active: true
+

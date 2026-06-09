@@ -1,0 +1,24 @@
+version: 1
+tags:
+  network:
+    datacenter: [datacenter, data center, rdma, congestion, incast, traffic control]
+    wireless: [wireless, cellular, wifi, wi-fi, 5g, 6g, radio, spectrum]
+    measurement: [measurement, trace, telemetry, observability, internet measurement]
+    routing: [routing, bgp, path, traffic engineering]
+    edge: [edge, cdn, cloud, geo-distributed]
+  architecture:
+    cpu: [cpu, processor, pipeline, branch prediction, out-of-order]
+    memory: [memory, cache, dram, nvram, coherence]
+    accelerator: [accelerator, gpu, tpu, fpga, asic, neural processing]
+    storage: [storage, ssd, filesystem, file system, nvme]
+    compiler: [compiler, jit, optimization, vectorization]
+    systems: [operating system, kernel, virtualization, serverless, scheduler]
+  ai:
+    machine_learning: [machine learning, optimization, generalization, foundation model]
+    deep_learning: [deep learning, neural network, transformer, representation]
+    computer_vision: [vision, image, video, detection, segmentation, diffusion]
+    natural_language_processing: [language, translation, summarization, dialogue, llm]
+    reinforcement_learning: [reinforcement learning, policy, reward, agent]
+    graph_ml: [graph neural network, gnn, graph learning]
+    multimodal: [multimodal, vision-language, audio-language]
+

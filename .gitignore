@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+topconf_papers.db
+*.sqlite
+*.sqlite3
+.env
+.DS_Store
+backups/
