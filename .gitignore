@@ -9,3 +9,6 @@ topconf_papers.db
 .env
 .DS_Store
 backups/
+node_modules/
+docs/.vitepress/dist/
+npm-debug.log*

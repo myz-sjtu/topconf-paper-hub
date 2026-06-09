@@ -60,6 +60,27 @@ curl "http://127.0.0.1:8000/api/v1/papers?conference=SIGCOMM&year=2025"
 .venv/bin/ruff check app tests
 ```
 
+## Static GitHub Pages
+
+`main` 分支包含静态站点流水线：
+
+```bash
+# 刷新近 5 年顶会数据库，并导出 VitePress 需要的 JSON / Markdown
+TOPCONF_REFRESH=1 ./scripts/build_static_site.sh
+
+# 本地预览静态页面
+npm install
+npm run docs:dev
+```
+
+导出结果：
+
+- `docs/public/data/papers.json`：前端首页读取的论文列表，包含标题、作者、会议、年份、领域、标签、链接和摘要。
+- `docs/public/data/summary.json`：论文数量统计。
+- `docs/conferences/*.md`、`docs/years/*.md`、`docs/domains/*.md`：按会议、年份、领域生成的静态 Markdown 页面。
+
+GitHub Pages 部署由 `.github/workflows/pages.yml` 完成。推送到 `main`、手动运行 workflow，或每日定时任务都会重新采集近 5 年论文、导出静态数据、构建 VitePress，并发布到 GitHub Pages。第一次使用时，在 GitHub 仓库的 `Settings -> Pages` 中把 Source 设为 `GitHub Actions`。
+
 ## Compliance
 
 - 保存元数据、DOI、官方 landing page 和开放 PDF 链接。
