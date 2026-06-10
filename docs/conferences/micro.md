@@ -1,5 +1,5 @@
 # MICRO
 
-Total papers: **318**
+Total papers: **249**
 
 <PaperBrowser conference="MICRO" />

@@ -1,5 +1,5 @@
 # SIGMETRICS
 
-Total papers: **364**
+Total papers: **308**
 
 <PaperBrowser conference="SIGMETRICS" />

@@ -1,5 +1,5 @@
 # Computer Architecture
 
-Total papers: **2368**
+Total papers: **2299**
 
 <PaperBrowser domain="architecture" />

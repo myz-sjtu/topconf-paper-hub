@@ -4,8 +4,8 @@
 
 ## Snapshot
 
-- Total papers: **36808**
-- Papers with abstracts: **15648**
+- Total papers: **35717**
+- Papers with abstracts: **14697**
 - Conferences: **26**
 - Years: **5**
 
@@ -13,19 +13,19 @@
 
 | Domain | Papers |
 | --- | ---: |
-| [Artificial Intelligence](domains/ai) | 32241 |
-| [Computer Architecture](domains/architecture) | 2368 |
-| [Computer Network](domains/network) | 2199 |
+| [Artificial Intelligence](domains/ai) | 31540 |
+| [Computer Architecture](domains/architecture) | 2299 |
+| [Computer Network](domains/network) | 1878 |
 
 ## Recent Years
 
 | Year | Papers |
 | --- | ---: |
-| [2026](years/2026) | 6008 |
-| [2025](years/2025) | 11114 |
-| [2024](years/2024) | 6914 |
-| [2023](years/2023) | 8701 |
-| [2022](years/2022) | 4071 |
+| [2026](years/2026) | 5825 |
+| [2025](years/2025) | 10953 |
+| [2024](years/2024) | 6719 |
+| [2023](years/2023) | 8470 |
+| [2022](years/2022) | 3750 |
 
 ## Conferences
 
@@ -49,14 +49,14 @@
 | [IMC](conferences/imc) | 59 |
 | [INFOCOM](conferences/infocom) | 40 |
 | [ISCA](conferences/isca) | 378 |
-| [KDD](conferences/kdd) | 3259 |
-| [MICRO](conferences/micro) | 318 |
+| [KDD](conferences/kdd) | 2558 |
+| [MICRO](conferences/micro) | 249 |
 | [MobiCom](conferences/mobicom) | 592 |
 | [NAACL](conferences/naacl) | 80 |
 | [NSDI](conferences/nsdi) | 449 |
 | [NeurIPS](conferences/neurips) | 3118 |
-| [SIGCOMM](conferences/sigcomm) | 617 |
-| [SIGMETRICS](conferences/sigmetrics) | 364 |
+| [SIGCOMM](conferences/sigcomm) | 352 |
+| [SIGMETRICS](conferences/sigmetrics) | 308 |
 
 ## Data
 

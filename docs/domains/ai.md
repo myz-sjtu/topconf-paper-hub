@@ -1,5 +1,5 @@
 # Artificial Intelligence
 
-Total papers: **32241**
+Total papers: **31540**
 
 <PaperBrowser domain="ai" />

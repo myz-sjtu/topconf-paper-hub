@@ -1,5 +1,5 @@
 # SIGCOMM
 
-Total papers: **617**
+Total papers: **352**
 
 <PaperBrowser conference="SIGCOMM" />

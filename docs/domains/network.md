@@ -1,5 +1,5 @@
 # Computer Network
 
-Total papers: **2199**
+Total papers: **1878**
 
 <PaperBrowser domain="network" />

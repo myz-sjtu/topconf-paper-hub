@@ -1,5 +1,5 @@
 # KDD
 
-Total papers: **3259**
+Total papers: **2558**
 
 <PaperBrowser conference="KDD" />

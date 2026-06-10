@@ -20,11 +20,11 @@
 | [IMC](./imc) | 59 |
 | [INFOCOM](./infocom) | 40 |
 | [ISCA](./isca) | 378 |
-| [KDD](./kdd) | 3259 |
-| [MICRO](./micro) | 318 |
+| [KDD](./kdd) | 2558 |
+| [MICRO](./micro) | 249 |
 | [MobiCom](./mobicom) | 592 |
 | [NAACL](./naacl) | 80 |
 | [NSDI](./nsdi) | 449 |
 | [NeurIPS](./neurips) | 3118 |
-| [SIGCOMM](./sigcomm) | 617 |
-| [SIGMETRICS](./sigmetrics) | 364 |
+| [SIGCOMM](./sigcomm) | 352 |
+| [SIGMETRICS](./sigmetrics) | 308 |

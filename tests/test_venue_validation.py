@@ -119,6 +119,26 @@ def test_crossref_rejects_sigcomm_review_issue() -> None:
     assert not is_crossref_item_for_conference(item, conference)
 
 
+def test_crossref_rejects_sponsor_only_conference_match() -> None:
+    conference = ConferenceSeed(acronym="SIGCOMM", full_name="ACM SIGCOMM Conference", domain="network")
+    item = {
+        "queried_year": 2025,
+        "title": ["3D Gaussian-based Immersive Media Streaming in Networked Extended Reality"],
+        "container-title": ["Proceedings of the 16th ACM Multimedia Systems Conference"],
+        "published-online": {"date-parts": [[2025, 3, 31]]},
+        "event": {
+            "sponsor": [
+                "SIGMM ACM Special Interest Group on Multimedia",
+                "SIGCOMM ACM Special Interest Group on Data Communication",
+            ],
+            "acronym": "MMSys '25",
+            "name": "MMSys '25: 16th ACM Multimedia Systems Conference",
+        },
+    }
+
+    assert not is_crossref_item_for_conference(item, conference)
+
+
 def test_openalex_rejects_title_only_acronym_match() -> None:
     conference = ConferenceSeed(acronym="KDD", full_name="ACM SIGKDD Conference", domain="ai")
     item = {

@@ -162,13 +162,7 @@ def is_crossref_item_for_conference(
     if looks_like_proceedings_volume(title, authors):
         return False
 
-    venue_parts: list[str] = []
-    for key in ["container-title", "event"]:
-        value = item.get(key)
-        if isinstance(value, list):
-            venue_parts.extend(str(part) for part in value)
-        elif value:
-            venue_parts.append(str(value))
+    venue_parts = crossref_venue_names(item)
 
     if has_excluded_proceedings_term(title, *venue_parts):
         return False
@@ -178,6 +172,27 @@ def is_crossref_item_for_conference(
         return False
 
     return any(candidate.lower() in venue_haystack for candidate in candidate_names(conference))
+
+
+def crossref_venue_names(item: dict[str, Any]) -> list[str]:
+    names: list[str] = []
+
+    container_title = item.get("container-title")
+    if isinstance(container_title, list):
+        names.extend(str(part) for part in container_title if part)
+    elif container_title:
+        names.append(str(container_title))
+
+    event = item.get("event")
+    if isinstance(event, dict):
+        for key in ["name", "acronym"]:
+            value = event.get(key)
+            if value:
+                names.append(str(value))
+    elif isinstance(event, str):
+        names.append(event)
+
+    return names
 
 
 def raw_record_passed_venue_validation(source_type: str, raw_payload: dict[str, Any]) -> bool:
