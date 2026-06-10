@@ -26,7 +26,7 @@ class DBLPAdapter(SourceAdapter):
         records = [
             record
             for hit in hits
-            if is_dblp_hit_for_conference(hit, conference)
+            if is_dblp_hit_for_conference(hit, conference, expected_year=year)
             and (record := self._parse_hit(hit, year))
         ]
         return records

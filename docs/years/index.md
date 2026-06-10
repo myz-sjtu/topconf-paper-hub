@@ -1,3 +1,9 @@
 # Years
 
-Run the static export pipeline to populate the year index.
+| Name | Papers |
+| --- | ---: |
+| [2026](./2026) | 6008 |
+| [2025](./2025) | 11114 |
+| [2024](./2024) | 6914 |
+| [2023](./2023) | 8701 |
+| [2022](./2022) | 4071 |

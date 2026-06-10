@@ -22,7 +22,7 @@ class CVFAdapter(SourceAdapter):
                 if response.status_code == 404:
                     continue
                 response.raise_for_status()
-                records = self._parse_listing(response.text, url)
+                records = self._parse_listing(response.text, url, venue=venue, year=year)
                 if records:
                     return records
         return []
@@ -36,15 +36,17 @@ class CVFAdapter(SourceAdapter):
             f"{base}.py?day=all",
         ]
 
-    def _parse_listing(self, html: str, base_url: str) -> list[RawPaperRecord]:
+    def _parse_listing(self, html: str, base_url: str, *, venue: str, year: int) -> list[RawPaperRecord]:
         records: list[RawPaperRecord] = []
         paper_pattern = re.compile(r'<a href="(?P<href>[^"]+\.html)">(?P<title>.*?)</a>', re.S)
+        main_conference_path = f"/content/{venue}{year}/html/"
         for match in paper_pattern.finditer(html):
             title = re.sub(r"\s+", " ", match.group("title")).strip()
             href = match.group("href")
-            if "content/CVPR" not in href and "content/ICCV" not in href:
+            normalized_href = "/" + href.lstrip("/")
+            if not normalized_href.startswith(main_conference_path):
                 continue
-            paper_url = f"https://openaccess.thecvf.com/{href.lstrip('/')}"
+            paper_url = f"https://openaccess.thecvf.com{normalized_href}"
             pdf_url = paper_url.replace("/html/", "/papers/").replace(".html", ".pdf")
             records.append(
                 RawPaperRecord(

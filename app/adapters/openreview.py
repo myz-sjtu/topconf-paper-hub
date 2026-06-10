@@ -10,18 +10,30 @@ from app.schemas import ConferenceSeed
 class OpenReviewAdapter(SourceAdapter):
     source_type = "openreview"
     endpoint = "https://api2.openreview.net/notes"
+    page_size = 1000
 
     async def fetch_papers(self, conference: ConferenceSeed, year: int) -> list[RawPaperRecord]:
         venue_id = self._venue_id(conference.acronym, year)
-        params = {"content.venueid": venue_id, "limit": 1000}
         headers = {"User-Agent": settings.crawler_user_agent}
+        notes: list[dict[str, Any]] = []
         async with httpx.AsyncClient(timeout=settings.request_timeout_seconds, headers=headers) as client:
-            response = await client.get(self.endpoint, params=params)
-            if response.status_code == 404:
-                return []
-            response.raise_for_status()
-            payload = response.json()
-        return [record for note in payload.get("notes", []) if (record := self._parse_note(note))]
+            offset = 0
+            while True:
+                params = {"content.venueid": venue_id, "limit": self.page_size, "offset": offset}
+                response = await client.get(self.endpoint, params=params)
+                if response.status_code == 404:
+                    return []
+                response.raise_for_status()
+                payload = response.json()
+                page_notes = payload.get("notes", [])
+                if not page_notes:
+                    break
+                notes.extend(page_notes)
+                if len(page_notes) < self.page_size:
+                    break
+                offset += len(page_notes)
+
+        return [record for note in notes if (record := self._parse_note(note))]
 
     def _venue_id(self, acronym: str, year: int) -> str:
         normalized = acronym.upper()
@@ -62,4 +74,3 @@ class OpenReviewAdapter(SourceAdapter):
             source_paper_id=forum,
             raw_payload=note,
         )
-

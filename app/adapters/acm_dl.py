@@ -59,7 +59,7 @@ class ACMDLAdapter(SourceAdapter):
         if not title:
             return None
 
-        if not is_crossref_item_for_conference(item, conference):
+        if not is_crossref_item_for_conference(item, conference, expected_year=year):
             return None
 
         doi = str(item.get("DOI") or "").strip().lower()
@@ -87,7 +87,7 @@ class ACMDLAdapter(SourceAdapter):
             publication_date=publication_date,
             source_url=acm_url,
             source_paper_id=doi,
-            raw_payload={**item, "venue_validated": True},
+            raw_payload={**item, "queried_year": year, "venue_validated": True},
         )
 
     def _first_text(self, value: Any) -> str | None:

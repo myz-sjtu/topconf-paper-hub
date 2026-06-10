@@ -11,11 +11,10 @@ from pathlib import Path
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
-from app.db.models import Conference, Paper, PaperTag
+from app.db.models import Paper, PaperTag
 from app.db.session import SessionLocal, init_db
 from app.services.conference_registry import registry
 from app.services.ingestion_pipeline import seed_conferences, seed_taxonomy
-
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "docs"
@@ -112,7 +111,7 @@ def write_json(papers: list[StaticPaper]) -> None:
     PUBLIC_DATA_DIR.mkdir(parents=True, exist_ok=True)
     paper_dicts = [asdict(paper) for paper in papers]
     (PUBLIC_DATA_DIR / "papers.json").write_text(
-        json.dumps(paper_dicts, ensure_ascii=False, indent=2),
+        json.dumps(paper_dicts, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
 
@@ -266,14 +265,25 @@ def write_group_pages(papers: list[StaticPaper]) -> None:
     )
 
     for conference, items in grouped_by_conference.items():
-        write_paper_page(CONFERENCE_DIR / f"{slugify(conference)}.md", conference, items)
+        write_paper_page(
+            CONFERENCE_DIR / f"{slugify(conference)}.md",
+            conference,
+            items,
+            browser_attrs=f'conference="{escape_attr(conference)}"',
+        )
     for year, items in grouped_by_year.items():
-        write_paper_page(YEAR_DIR / f"{year}.md", str(year), items)
+        write_paper_page(
+            YEAR_DIR / f"{year}.md",
+            str(year),
+            items,
+            browser_attrs=f'year="{year}"',
+        )
     for domain, items in grouped_by_domain.items():
         write_paper_page(
             DOMAIN_DIR / f"{slugify(domain)}.md",
             DOMAIN_LABELS.get(domain, domain),
             items,
+            browser_attrs=f'domain="{escape_attr(domain)}"',
         )
 
 
@@ -296,18 +306,26 @@ def write_listing_page(
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def write_paper_page(path: Path, title: str, papers: list[StaticPaper]) -> None:
-    papers = sorted(papers, key=lambda item: (-item.year, item.conference, item.title))
+def write_paper_page(
+    path: Path,
+    title: str,
+    papers: list[StaticPaper],
+    *,
+    browser_attrs: str,
+) -> None:
     lines = [
         f"# {escape(title)}",
         "",
         f"Total papers: **{len(papers)}**",
         "",
+        f"<PaperBrowser {browser_attrs} />",
+        "",
     ]
-    for paper in papers:
-        lines.append(paper_block(paper))
-        lines.append("\n---\n")
     path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def escape_attr(value: str) -> str:
+    return escape(value, quote=True)
 
 
 def write_vitepress_sidebar(papers: list[StaticPaper]) -> None:

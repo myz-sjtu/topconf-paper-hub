@@ -41,13 +41,20 @@ else
   echo "==> Reusing existing database at $DB_PATH"
 fi
 
+echo "==> Auditing venue assignments before static export"
+.venv/bin/python scripts/audit_and_clean_database.py
+
 export_args=()
 if truthy "$SKIP_EMPTY_CHECK"; then
   export_args+=(--skip-empty-check)
 fi
 
 echo "==> Exporting JSON and Markdown for VitePress"
-.venv/bin/python scripts/export_static_site.py "${export_args[@]}"
+if [[ "${#export_args[@]}" -gt 0 ]]; then
+  .venv/bin/python scripts/export_static_site.py "${export_args[@]}"
+else
+  .venv/bin/python scripts/export_static_site.py
+fi
 
 echo
 echo "Static data is ready. Build the site with:"

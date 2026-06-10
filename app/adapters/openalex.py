@@ -29,8 +29,8 @@ class OpenAlexAdapter(SourceAdapter):
         return [
             record
             for item in payload.get("results", [])
-            if is_openalex_work_for_conference(item, conference)
-            and (record := self._parse_work(item, venue_validated=True))
+            if is_openalex_work_for_conference(item, conference, expected_year=year)
+            and (record := self._parse_work(item, venue_validated=True, queried_year=year))
         ]
 
     async def fetch_by_dois(self, dois: list[str]) -> list[RawPaperRecord]:
@@ -77,7 +77,13 @@ class OpenAlexAdapter(SourceAdapter):
             return None
         return " ".join(word for _, word in sorted(words)).strip() or None
 
-    def _parse_work(self, item: dict[str, Any], *, venue_validated: bool) -> RawPaperRecord | None:
+    def _parse_work(
+        self,
+        item: dict[str, Any],
+        *,
+        venue_validated: bool,
+        queried_year: int | None = None,
+    ) -> RawPaperRecord | None:
         title = (item.get("title") or "").strip()
         if not title:
             return None
@@ -115,6 +121,7 @@ class OpenAlexAdapter(SourceAdapter):
             source_paper_id=item.get("id"),
             raw_payload={
                 **item,
+                "queried_year": queried_year,
                 "venue_names": openalex_venue_names(item),
                 "venue_validated": venue_validated,
             },

@@ -1,7 +1,44 @@
 {
-  "total_papers": 0,
-  "with_abstract": 0,
-  "by_domain": {},
-  "by_conference": {},
-  "by_year": {}
+  "total_papers": 36808,
+  "with_abstract": 15648,
+  "by_domain": {
+    "ai": 32241,
+    "architecture": 2368,
+    "network": 2199
+  },
+  "by_conference": {
+    "AAAI": 399,
+    "ACL": 10,
+    "ASPLOS": 744,
+    "COLT": 219,
+    "CVPR": 14086,
+    "CoNEXT": 78,
+    "ECCV": 27,
+    "EMNLP": 198,
+    "EuroSys": 467,
+    "FAST": 8,
+    "HPCA": 453,
+    "ICCV": 4891,
+    "ICLR": 2364,
+    "ICML": 3350,
+    "IJCAI": 240,
+    "IMC": 59,
+    "INFOCOM": 40,
+    "ISCA": 378,
+    "KDD": 3259,
+    "MICRO": 318,
+    "MobiCom": 592,
+    "NAACL": 80,
+    "NSDI": 449,
+    "NeurIPS": 3118,
+    "SIGCOMM": 617,
+    "SIGMETRICS": 364
+  },
+  "by_year": {
+    "2026": 6008,
+    "2025": 11114,
+    "2024": 6914,
+    "2023": 8701,
+    "2022": 4071
+  }
 }

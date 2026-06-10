@@ -1,3 +1,30 @@
 # Conferences
 
-Run the static export pipeline to populate the conference index.
+| Name | Papers |
+| --- | ---: |
+| [AAAI](./aaai) | 399 |
+| [ACL](./acl) | 10 |
+| [ASPLOS](./asplos) | 744 |
+| [COLT](./colt) | 219 |
+| [CVPR](./cvpr) | 14086 |
+| [CoNEXT](./conext) | 78 |
+| [ECCV](./eccv) | 27 |
+| [EMNLP](./emnlp) | 198 |
+| [EuroSys](./eurosys) | 467 |
+| [FAST](./fast) | 8 |
+| [HPCA](./hpca) | 453 |
+| [ICCV](./iccv) | 4891 |
+| [ICLR](./iclr) | 2364 |
+| [ICML](./icml) | 3350 |
+| [IJCAI](./ijcai) | 240 |
+| [IMC](./imc) | 59 |
+| [INFOCOM](./infocom) | 40 |
+| [ISCA](./isca) | 378 |
+| [KDD](./kdd) | 3259 |
+| [MICRO](./micro) | 318 |
+| [MobiCom](./mobicom) | 592 |
+| [NAACL](./naacl) | 80 |
+| [NSDI](./nsdi) | 449 |
+| [NeurIPS](./neurips) | 3118 |
+| [SIGCOMM](./sigcomm) | 617 |
+| [SIGMETRICS](./sigmetrics) | 364 |

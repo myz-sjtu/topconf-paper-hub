@@ -2,13 +2,28 @@
 import { computed, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 
+const props = defineProps({
+  conference: {
+    type: String,
+    default: '',
+  },
+  year: {
+    type: [String, Number],
+    default: '',
+  },
+  domain: {
+    type: String,
+    default: '',
+  },
+})
+
 const papers = ref([])
 const loading = ref(true)
 const error = ref('')
 const query = ref('')
-const conference = ref('')
-const year = ref('')
-const domain = ref('')
+const conference = ref(props.conference)
+const year = ref(props.year ? String(props.year) : '')
+const domain = ref(props.domain)
 const visibleCount = ref(80)
 
 const domainLabels = {
@@ -75,9 +90,9 @@ function unique(items) {
 
 function resetFilters() {
   query.value = ''
-  conference.value = ''
-  year.value = ''
-  domain.value = ''
+  conference.value = props.conference
+  year.value = props.year ? String(props.year) : ''
+  domain.value = props.domain
   visibleCount.value = 80
 }
 </script>
